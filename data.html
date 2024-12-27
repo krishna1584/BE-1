@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .user-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .user-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .user-card p {
+            margin: 5px 0;
+            color: var(--text-color);
+        }
+        #user-data-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h2>User Data</h2>
+            <p>Registered users in the system</p>
+        </div>
+        <div id="user-data-container">
+            <!-- User data will be dynamically inserted here -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('user-data-container');
+            try {
+                const response = await fetch('/api/users');
+                if (response.ok) {
+                    const users = await response.json();
+                    if (users.length === 0) {
+                        container.innerHTML = '<p>No users found.</p>';
+                    } else {
+                        users.forEach(user => {
+                            const userCard = document.createElement('div');
+                            userCard.className = 'user-card';
+                            userCard.innerHTML = `
+                                <h3>${user.name}</h3>
+                                <p><strong>Email:</strong> ${user.email}</p>
+                            `;
+                            container.appendChild(userCard);
+                        });
+                    }
+                } else {
+                    throw new Error('Failed to fetch user data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                container.innerHTML = '<p>Error loading user data. Please try again later.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
+

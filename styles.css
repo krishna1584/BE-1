@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #900fd1;
+  --secondary-color: #16c4a8;
+  --accent-color: #4cc9f0;
+  --background-color: #f8f9fa;
+  --text-color: #2b2d42;
+  --error-color: #ef233c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("https://img.freepik.com/free-vector/gradient-stock-market-concept_23-2149166910.jpg?t=st=1735193968~exp=1735197568~hmac=5f5f34e5eeeefcbcbc22e8be43065a1de1b0c8099cd9c830bba49d9bb6336d68&w=826");
+  background-size: cover;
+
+}
+
+.container {
+  background-color: var(--background-color);
+  border-radius: 0px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 400px;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form-header p {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--text-color);
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--text-color);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -20px;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.input-group input:focus {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-color);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-color);
+}
+
+.form-footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.form-footer a:hover {
+  color: var(--primary-color);
+}
+
+
+
